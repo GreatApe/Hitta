@@ -9,97 +9,66 @@
 import UIKit
 import MapKit
 
-class ViewController: UITableViewController {
-    let animator = Animator()
-    
-    @IBOutlet weak var mapCell: UITableViewCell!
-    @IBOutlet weak var mapView: MKMapView!
+let tranholmen = CLLocationCoordinate2D(latitude: 59.375129, longitude: 18.087906)
 
-    private var expandMap = false
+class ViewController: UITableViewController {
+    var region = MKCoordinateRegion(center: tranholmen, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     
+    @IBOutlet weak var dismissMapButton: UIButton!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet var mapTapRecognizer: UITapGestureRecognizer!
+    
+    private var isExpanded = false
+
     // MARK: Lifetime
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = tranholmen
+        annotation.title = "House"
+        
+        mapView.addAnnotation(annotation)
+        mapView.region = region
     }
     
     // MARK: User actions
     
-    @IBAction func tappedMap(sender: AnyObject) {
-        expandMap = !expandMap
+    @IBAction func tappedMap() {
+        toggleMap(true)
+    }
+    
+    @IBAction func tappedDismissMap() {
+        toggleMap(false)
+    }
+    
+    func toggleMap(expanded: Bool) {
+        isExpanded = expanded
+
         tableView.beginUpdates()
         tableView.endUpdates()
-
-        if expandMap {
+        
+        if isExpanded {
             tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0), atScrollPosition: .Top, animated: true)
         }
-        tableView.scrollEnabled = !expandMap
+        else {
+            UIView.animateWithDuration(0.3) {
+                self.mapView.region = self.region
+            }
+        }
         
-        //        let map = storyboard!.instantiateViewControllerWithIdentifier("Map")
-////        map.transitioningDelegate = self
-//        presentViewController(map, animated: true) {
-//            print("Presented")
-//        }
+        UIView.animateWithDuration(0.25) {
+            self.dismissMapButton.alpha = self.isExpanded ? 1 : 0
+        }
+
+        tableView.scrollEnabled = !isExpanded
+        mapView.scrollEnabled = isExpanded
+        mapView.zoomEnabled = isExpanded
+        mapTapRecognizer.enabled = !isExpanded
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return indexPath.row == 2 && expandMap ? view.frame.height : super.tableView(tableView, heightForRowAtIndexPath: indexPath)
-    }
-    
-    // MARK: Overrides
-
-    override func prefersStatusBarHidden() -> Bool {
-        return true
+        return indexPath.row == 2 && isExpanded ? view.frame.height : super.tableView(tableView, heightForRowAtIndexPath: indexPath)
     }
 }
-
-extension ViewController: UIViewControllerTransitioningDelegate {
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-
-        animator.originFrame = mapView.superview!.convertRect(mapView.frame, toView: nil)
-        
-        animator.presenting = true
-
-        return animator
-    }
-    
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-
-        animator.presenting = false
-        return animator
-    }
-}
-
-class Animator: NSObject, UIViewControllerAnimatedTransitioning {
-    let duration    = 2.0
-    var presenting  = true
-    var originFrame = CGRect()
-    
-    // MARK: UIViewControllerAnimatedTransitioning
-    
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return duration
-    }
-    
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        guard let containerView = transitionContext.containerView(),
-            targetView = transitionContext.viewForKey(UITransitionContextToViewKey),
-            mapView = presenting ? targetView : transitionContext.viewForKey(UITransitionContextFromViewKey) else { return }
-        
-        if presenting {
-            mapView.frame = originFrame
-            mapView.clipsToBounds = true
-        }
-
-        containerView.addSubview(targetView)
-        containerView.bringSubviewToFront(mapView)
-        
-        let endFrame = presenting ? mapView.frame : originFrame
-
-        UIView.animateWithDuration(duration, animations: {
-            mapView.frame = endFrame
-            }, completion: { _ in transitionContext.completeTransition(true) })
-    }
-}
-
-

@@ -12,16 +12,20 @@ import MapKit
 let tranholmen = CLLocationCoordinate2D(latitude: 59.375129, longitude: 18.087906)
 
 class ViewController: UITableViewController {
+    // MARK: Externally set variables
+
     var region: MKCoordinateRegion! = MKCoordinateRegion(center: tranholmen, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     var location: CLLocationCoordinate2D! = tranholmen
     
+    // MARK: Local variables
+
     @IBOutlet weak var dismissMapButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet var mapTapRecognizer: UITapGestureRecognizer!
     
     private var isExpanded = false
 
-    // MARK: Lifetime
+    // MARK: Lifetime methods
 
     override func viewDidLoad() {
         super.viewDidLoad()

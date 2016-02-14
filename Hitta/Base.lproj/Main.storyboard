@@ -59,18 +59,18 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="IHr-sY-7fb">
-                                        <rect key="frame" x="0.0" y="285" width="600" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="IHr-sY-7fb">
+                                        <rect key="frame" x="0.0" y="285" width="600" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IHr-sY-7fb" id="hbj-xD-eKZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kJ-yw-G4s">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                                 </mapView>
-                                                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m82-za-GwN">
-                                                    <rect key="frame" x="15" y="8" width="30" height="46"/>
+                                                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m82-za-GwN">
+                                                    <rect key="frame" x="15" y="20" width="30" height="42"/>
                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
                                                     <state key="normal" title="X"/>
                                                     <connections>
@@ -94,7 +94,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="85" id="e03-ft-nz8">
-                                        <rect key="frame" x="0.0" y="485" width="600" height="85"/>
+                                        <rect key="frame" x="0.0" y="435" width="600" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e03-ft-nz8" id="AFc-Gf-rOX">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
@@ -113,6 +113,52 @@
                                                 <constraint firstItem="Q5b-af-Nmr" firstAttribute="top" secondItem="AFc-Gf-rOX" secondAttribute="topMargin" id="Sr4-9g-F8i"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Q5b-af-Nmr" secondAttribute="bottom" id="dpd-kx-exv"/>
                                                 <constraint firstItem="Q5b-af-Nmr" firstAttribute="leading" secondItem="AFc-Gf-rOX" secondAttribute="leadingMargin" id="t1z-im-g2W"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="85" id="TGA-eA-egn">
+                                        <rect key="frame" x="0.0" y="520" width="600" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TGA-eA-egn" id="TYD-xK-3e7">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdb-fP-eYR">
+                                                    <rect key="frame" x="8" y="8" width="584" height="69"/>
+                                                    <string key="text">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xdb-fP-eYR" secondAttribute="bottom" id="8xy-7P-1RU"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xdb-fP-eYR" secondAttribute="trailing" id="UAW-fF-x6i"/>
+                                                <constraint firstItem="xdb-fP-eYR" firstAttribute="top" secondItem="TYD-xK-3e7" secondAttribute="topMargin" id="Y4O-aj-Y4T"/>
+                                                <constraint firstItem="xdb-fP-eYR" firstAttribute="leading" secondItem="TYD-xK-3e7" secondAttribute="leadingMargin" id="uMw-jm-5LG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="85" id="tlf-GV-Fj2">
+                                        <rect key="frame" x="0.0" y="605" width="600" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tlf-GV-Fj2" id="r8x-5R-JAR">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xyt-Vq-rYj">
+                                                    <rect key="frame" x="8" y="8" width="584" height="69"/>
+                                                    <string key="text">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Xyt-Vq-rYj" secondAttribute="trailing" id="Uav-bV-02i"/>
+                                                <constraint firstItem="Xyt-Vq-rYj" firstAttribute="leading" secondItem="r8x-5R-JAR" secondAttribute="leadingMargin" id="XHa-hE-aqk"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Xyt-Vq-rYj" secondAttribute="bottom" id="bJY-HB-mEH"/>
+                                                <constraint firstItem="Xyt-Vq-rYj" firstAttribute="top" secondItem="r8x-5R-JAR" secondAttribute="topMargin" id="r9G-Zy-rT1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
